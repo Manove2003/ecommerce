@@ -1,0 +1,129 @@
+@use "./variables" as *;
+@use "./mediaQueries" as *;
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  color: $clr-neutral;
+}
+
+.containerProduct {
+  display: flex;
+  flex-direction: column;
+  margin: 6rem 1rem 0;
+
+  @include md {
+    flex-direction: row;
+    max-width: 100%;
+    margin: 6rem 4rem 0;
+  }
+
+  .image-section,
+  .details-section {
+    flex: 1 1 100%;
+
+    @include md {
+      flex: 1 1 50%;
+    }
+  }
+
+  .image-section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+
+    @include md {
+      flex-direction: row;
+    }
+
+    .thumbnail-list {
+      display: flex;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+
+      @include md {
+        flex-direction: column;
+      }
+
+      img {
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+      }
+    }
+
+    .main-image {
+      display: flex;
+
+      img {
+        width: 20rem;
+        object-fit: cover;
+      }
+
+      button {
+        height: 1rem;
+      }
+    }
+
+    .image-navigation {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .details-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .options {
+      margin-bottom: 20px;
+    }
+
+    .sizes,
+    .colors {
+      margin-bottom: 10px;
+    }
+
+    .size-button,
+    .color-button {
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: none;
+
+      &.selected {
+        border-color: black;
+      }
+    }
+
+    .color-button {
+      width: 30px;
+      height: 30px;
+    }
+
+    .price {
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart {
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .description {
+      margin-top: 20px;
+    }
+  }
+}
